@@ -1,0 +1,24 @@
+html {
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    color: #313144;
+    background-color: #e6e6fa;
+}
+
+h1 {
+    margin: 0 auto;
+}
+
+.mainGameCanvas {
+    border: 2px solid #313144;
+    border-radius: 6px;
+    cursor: none;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin: 10px;
+}

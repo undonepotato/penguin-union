@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Features and Bugs</title>
+        <meta charset="utf-8">
+        <meta content="viewport" content="width=device-width">
+        <meta name="author" content="undonepotato">
+        <meta name="description" content="Feature requests and bug reports for Polka Dot Copy">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="../styles/requests.css" rel="stylesheet">
+    </head>
+    <body>
+        <form action="/my-handling-form-page" method="post">
+            <ul>
+                <li>
+                    <label for="user-name" class="question">Your name</label>
+                    <input type="text" id="name" name="user-name">
+                </li>
+                <li class="question">
+                    Preferred contact method
+                </li>
+                <li>
+                    <label for="contact-discord" class="answer">Discord</label>
+                    <input type="radio" id="contact-discord" name="contact-method" value="Discord">
+                    <label for="contact-email" class="answer">Email</label>
+                    <input type="radio" id="contact-email" name="contact-method" value="Email">
+                </li>
+                <li>
+                    <label for="discord-username" class="question">Your Discord username</label>
+                    <input type="text" id="discord-username" name="discord-username">
+                </li>
+                <li>
+                    <label for="email-address" class="question">Your email address</label>
+                    <input type="email" id="email" name="email">
+                </li>
+                <li class="question">
+                    Bug or feature request?
+                </li>
+                <li>
+                    <label for="type-bug" class="answer">Bug</label>
+                    <input type="radio" id="type-bug" name="request-type" value="bug">
+
+                    <label for="type-feature" class="answer">Feature request</label>
+                    <input type="radio" id="type-feature" name="request-type" value="feature-request">
+                </li>
+                <li>
+                    <label for="request-title" class="question">Request/Report Title</label>
+                    <input type="text" id="request-title" name="request-title">
+                </li>
+                <li>
+                    <label for="request-details" class="question">Details</label>
+                    <textarea id="request-details" name="request-details"></textarea>
+                </li>
+                <li class="submit">
+                    <button type="submit">Submit</button>
+                </li>
+            </ul>
+        </form>
+    </body>
+</html>

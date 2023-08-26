@@ -1,0 +1,94 @@
+html {
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    color: #313144;
+    background-color: #e6e6fa;
+}
+
+form {
+    /* Center the form on the page */
+    margin: 0 auto;
+    width: 400px;
+    /* Form outline */
+    padding: 1em;
+    border: 1px solid #313144;
+    border-radius: 1em;
+  }
+  
+ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+form li + li {
+margin-top: 1em;
+}
+
+
+input {
+/* To make sure that all text fields have the same font settings
+    By default, textareas have a monospace font */
+font: 0.9em "Open Sans";
+
+/* Uniform text field size */
+width: 100px;
+box-sizing: border-box;
+
+/* Match form field borders */
+border: 1px solid #313144;
+border-radius: 5px;
+}
+
+textarea {
+    font: 0.9em "Open Sans";
+    
+    width: 300px;
+    box-sizing: border-box;
+
+    border: 1px solid #313144;
+    border-radius: 5px;
+    }
+
+.question {
+display: inline-block;
+width: 200px;
+text-align: center;
+
+margin: 3;
+font-size: 1.1em;
+}
+
+.answer {
+display: inline-block;
+width: 200px;
+text-align: center;
+margin: 0 auto;
+font-size: 0.9em;
+}
+
+input:focus,
+textarea:focus {
+/* Additional highlight for focused elements */
+border-color: #313144;
+}
+
+textarea {
+/* Align multiline text fields with their labels */
+vertical-align: top;
+
+/* Provide space to type some text */
+height: 5em;
+}
+
+.button {
+/* Align buttons with the text fields */
+padding-left: 90px; /* same size as the label elements */
+}
+
+button {
+/* This extra margin represent roughly the same space as the space
+    between the labels and their text fields */
+margin-left: 0.5em;
+}
+  
