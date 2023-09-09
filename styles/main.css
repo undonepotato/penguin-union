@@ -5,3 +5,17 @@ html {
     background-color: #e6e6fa;
 }
 
+button {
+    font-family: "Open Sans", sans-serif;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border: 1px solid #313144;
+    background-color: white;
+    margin: 1em auto;
+    user-select: none;
+}
+
+button:hover {
+    background-color: rgb(200, 200, 200);
+    cursor: pointer;
+}

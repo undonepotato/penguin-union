@@ -1,0 +1,195 @@
+html { /* You can do multiple selectors by using a comma in the selector name */
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    color: #313144;
+    background-color: #e6e6fa;
+}
+
+/* Same-specificity conflicting element styles - go for the one after.*/
+
+/* Here: list-style-type is a property, square is a value, them combined is a CSS declaration, that with
+color: red is a CSS declaration block, with the selector and braces is a CSS ruleset */
+
+/* If there are invalid rulesets, they are completely ignored
+
+Spelling, such as colour/color, are always the US spelling (color).
+
+Though most values are simple, some are functions (like calc()). The calc() function can do simple math, enabling
+something like this: width: calc(50% - 20px); The result cannot be calculated in advance or entered as a static value.
+
+Another example of a function is rotate(), part of the transform property. It can be used like so:
+transform: rotate(0.5turns);
+
+More:
+
+color: rgb(r, g, b)
+color: hsl(h, s, l)
+background-image: url(url)
+background-image: linear-gradient(color, color), url(url)
+
+
+There are also rules called @rules. For example, @import 'stylesheet.css' imports another
+stylesheet into this one.
+@media makes a media query - for example, the size of the viewport. This can be used
+for conditional logic and selectively applying stylesheets.
+
+Example:
+
+body {
+  background-color: pink;
+}
+
+@media (min-width: 30em) {
+  body {
+    background-color: blue;
+  }
+}
+
+This applies a background color of pink if the viewport is not less than 30em.
+
+Shorthands set multiple properties in one line. Omitted values always reset, even if they're
+already defined elsewhere.
+
+In 4-value shorthands like padding and margin, the values are applied
+in the order top, right, bottom, left (clockwise from the top). There are also other
+shorthand types, for example 2-value shorthands, which set padding/margin
+for top/bottom, then left/right
+
+padding: 10px 15px 15px 5px;
+
+
+Since browsers ignore CSS things they don't understand, you can do basic fallback styling by
+doing, for example, a 500px declaration first and a calc() declaration next.
+
+Attribute selectors, which only select elements with a specific atribute, can be
+used with this syntax: element[attribute]. For example, a[href].
+You can also specify a specific value; for example, a[href="https://example.com"]
+
+Pseudo-class selectors also exist. For example, a:hover only activates when the mouse is
+hovering over a link.
+
+Similarly, there are pseudo-elements; p::first-line selects the first line of a
+p element.
+
+Combinators combine element selectors; for example, article > p selects p elements that are
+direct children of article elements.
+
+* is used for global selectors.
+
+You can chain things - for example, select things that have the special and danger class
+by doing .special.danger. Or only spans with .danger by using span.danger.
+
+ID selectors can be used the same way
+
+Combinators: space is descendant, > is direct child, + is directly adjacent sibling,
+~ is general sibling,
+
+inherit
+Sets the property value applied to a selected element to be 
+the same as that of its parent element. Effectively, this "turns on inheritance".
+
+initial
+Sets the property value applied to a selected element to 
+the initial value of that property.
+
+revert
+Resets the property value applied to a selected element to 
+the browser's default styling rather than the defaults applied to that property. 
+This value acts like unset in many cases.
+
+revert-layer
+Resets the property value applied to a selected element to 
+the value established in a previous cascade layer.
+
+unset
+Resets the property to its natural value, which means that 
+if the property is naturally inherited it acts like inherit, otherwise it acts like initial.
+
+You can use the shorthand all: to change these at once.
+
+CSS style order:
+
+Relevance: Find all the declaration blocks with a selector match for each element.
+
+Importance: Sort rules based on if they are normal or important. 
+    Important styles are those that have the !important flag set.
+
+Origin: Within each of the two importance buckets, sort rules by author, user, or user-agent origin.
+
+Layers: Within each of the six origin importance buckets, sort by cascade layer.
+    The layer order for normal declarations is from first layer created to last, followed by unlayered normal styles. 
+    This order is inverted for important styles, with unlayered important styles having the lowest precedence.
+
+Specificity: For competing styles in the origin layer with precedence, sort declarations by specificity.
+
+Order of appearance: When two selectors in the origin layer with precedence have the same specificity, 
+    the property value from the last declared selector with the highest specificity wins.
+
+within a layer, there are three factors to consider, 
+listed here in increasing order of importance. Later ones overrule earlier ones:
+
+Source order
+Specificity
+Importance
+
+Layers: Define them by using the @layer x, y, z; to define empty layers after each other
+or use blocks like:
+
+@layer name {
+    p {
+        regular styles here
+    }
+}
+
+you can also omit the names for anonymous layers.
+all styles not in a layer get added in one anonymous one at the end.
+*/
+
+.generator { /* li.generator would only apply this style to li elements with the generator class */
+    list-style-type: square;
+    color: red;
+}
+
+p i { /* selector, space, selector only includes nested elements of the second selector in the first*/
+    /* This is called a descendant combinator */
+    color: blue;
+}
+
+p + ul {
+    /* This is called an adjacent sibling combinator. 
+    It selects only the ul elements directly after p elements. */
+    color: purple;
+}
+
+a:visited {
+    /* Visited links */
+    color: gray;
+}
+
+a:hover {
+    /* When hovering over a link, make bigger and remove underline */
+    text-decoration: none;
+    font-size: 130%;
+}
+
+@media (max-width: 10em) {
+    html {
+        background-color: red;
+    }
+}
+
+/* 
+
+selects any <span> that is inside a <p>, which is inside an <article>
+article p span {
+}
+
+selects any <p> that comes directly after a <ul>, which comes directly after an <h1>
+h1 + ul + p {
+}
+
+selects any .special class in a p element that comes directly after an h1 element in a body
+body h1 + p .special {
+}
+
+*/
