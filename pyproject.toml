@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "probably-bad-things"
+version = "0.1.0"
+description = ""
+authors = ["undonepotato <icyseas@outlook.com>"]
+readme = "README.md"
+packages = [{include = "probably_bad_things"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.31.0"
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^2.17.5"
+black = "^23.9.0"
+bandit = "^1.7.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

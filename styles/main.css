@@ -7,12 +7,15 @@ html {
 
 button {
     font-family: "Open Sans", sans-serif;
+    color: black;
     padding: 0.5em;
     border-radius: 0.5em;
     border: 1px solid #313144;
     background-color: white;
     margin: 1em auto;
     user-select: none;
+    width: auto;
+    height: auto;
 }
 
 button:hover {
