@@ -30,7 +30,7 @@ def main():
 
     if send_confirm in ("y", "yes"):
         resp = requests.post(URL, data, timeout=REQUEST_TIMEOUT)
-        print("Response: HTTP" + str(resp.status_code))
+        print("Response: HTTP " + str(resp.status_code))
         resp.raise_for_status()
     else:
         print("Message not sent.")

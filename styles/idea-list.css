@@ -1,0 +1,40 @@
+@layer base;
+@import url("base.css") layer(base);
+
+h1 {
+    text-align: center;
+}
+
+a.idea-list-item {
+    text-decoration: none;
+    border-radius: 20px;
+    background-color: #3699c4;
+    display: inline-flex;
+    padding: 3rem;
+    text-align: center;
+    font-weight: 500;
+    inline-size: 15%;
+    block-size: 5rem;
+    margin: 1rem;
+    vertical-align: top;
+    word-wrap: break-word;
+    justify-content: center;
+    align-items: center;
+}
+
+a.idea-list-item:hover {
+    color: darkgray;
+}
+
+a.idea-list-item.completed {
+    text-decoration: line-through;
+    background-color: #08c49e;
+}
+
+a.idea-list-item.in-progress {
+    background-color: #f0eca6;   
+}
+
+a.idea-list-item.canceled {
+    background-color: #f4d7dd;
+}
