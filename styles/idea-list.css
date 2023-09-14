@@ -1,5 +1,6 @@
-@layer base;
+@layer base, fit-size;
 @import url("base.css") layer(base);
+@import url("fit-size.css") layer(fit-size);
 
 h1 {
     text-align: center;
@@ -20,6 +21,8 @@ a.idea-list-item {
     word-wrap: break-word;
     justify-content: center;
     align-items: center;
+    align-content: center;
+    flex-direction: column;
 }
 
 a.idea-list-item:hover {
