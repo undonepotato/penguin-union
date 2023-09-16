@@ -1,8 +1,29 @@
+/* 
+
+Basic styles used for probably all pages.
+This includes things like the nav header.
+
+Z-indexes:
+
+2: Top navigation bar
+3: Gray overlay for the rest of the screen when sidebar is triggered
+4: Side navigation bar (for narrow screens)
+
+*/
+
+:root {
+    --text-color: #04100e;
+    --background-color: #effbf8;
+    --primary-color: #3699c4;
+    --secondary-color: #f4d7dd;
+    --accent-color: #08c49e;
+}
+
 html {
     font-size: 18px;
     font-family: "Inter", Arial, Helvetica, sans-serif;
-    color: #04100e;
-    background-color: #effbf8;
+    color: var(--text-color);
+    background-color: var(--background-color);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -10,7 +31,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 main {
-    margin-block-start: 5rem;
+    margin-block-start: 4rem;
     margin-block-end: 1rem;
     min-block-size: calc(100vh - 11rem);
 }
@@ -20,14 +41,14 @@ nav.top-nav {
     position: fixed;
     top: 0;
     inline-size: 100%;
-    background: #effbf8;
+    background-color: var(--background-color);
     display: block;
     border-block-end: 2px solid #04100e;
     margin-block-end: 0.5rem;
     z-index: 2;
 }
 
-a.top-nav {
+a.top-nav{
     display: inline-block;
     text-decoration: none;
     color: inherit;
@@ -42,9 +63,9 @@ button.top-nav {
     margin: 0.1rem; 
 }
 
-h1.top-nav {
+h1.top-nav, h1.side-nav {
     display: inline;
-    background: linear-gradient(to right, #3699c4 0%, #08c49e 100%);
+    background: linear-gradient(to right, var(--primary-color) 0%, var(--accent-color) 100%);
     font-size: 1.5rem;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -52,8 +73,8 @@ h1.top-nav {
 
 a.top-nav:hover{
     cursor: pointer;
-    color: #effbf8;
-    background: #3699c4;
+    color: var(--background-color);
+    background: var(--primary-color);
     background-clip: border-box;
     border-radius: 10px;
 }
@@ -70,7 +91,7 @@ button.top-nav:hover {
     margin: 0.2rem 0.5rem;
 }
 
-.profile-picture.top-nav {
+#profile-picture.top-nav {
     position: absolute;
     right: 1rem;
     top: 0.5rem;
@@ -79,20 +100,75 @@ button.top-nav:hover {
 }
 
 a {
-    color: #04100e;
-    text-decoration: 2px underline #08c49e;
+    color: var(--text-color);
+    text-decoration: 2px underline var(--accent-color);
 }
 
 a:hover {
     cursor: pointer;
-    background-color: #f4d7dd;
+    background-color: var(--secondary-color);
 }
 
 footer {
     font-size: 16px;
-    border-block-start: 2px solid #04100e;
+    border-block-start: 2px solid var(--text-color);
     min-width: 100%;
     margin: 0;
     padding: 0;
     left: 0px;
 }
+
+h1.side-nav {
+    text-align: center;
+    display: block;
+    margin-block-start: 0.1rem;
+    border-block-end: 1px solid var(--text-color);
+}
+
+#darken-not-sidebar:not(.activated) {
+    display: none;
+    inline-size: 0;
+    block-size: 0;
+}
+
+#darken-not-sidebar.activated {
+    position: absolute;
+    left: 0;
+    top: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.4)
+}
+
+.side-nav:not(.activated) {
+    display: none;
+}
+
+nav.side-nav.activated { /* Only display if activated */
+    display: block;
+    position: fixed;
+    inline-size: 20rem;
+    block-size: 100%;
+    right: 0;
+    top: 0;
+    z-index: 4;
+    background-color: var(--background-color);
+    border-radius: 20px 0px 0px 20px;
+}
+
+a.side-nav.activated {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: var(--background-color);
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+}
+
+
+/* See fit-size.js: an inline style of filter: brightness(80%)
+is applied to the <html> element if the side nav is triggered.
+*/
