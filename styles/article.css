@@ -21,7 +21,7 @@ img.article-image {
         margin: 2rem;
         inline-size: 10rem;
         z-index: 1;
-        border: 1px solid #08c49e;
+        border: 2px solid var(--accent-color);
         border-radius: 40px;
         padding: 10px;
     }

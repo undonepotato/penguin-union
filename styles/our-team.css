@@ -1,0 +1,15 @@
+@layer base, fit-size;
+@import url("base.css") layer(base);
+@import url("fit-size.css") layer(fit-size);
+
+main {
+    display: flex;
+    font-size: 25vw;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+
+    min-block-size: calc(100vh - 8rem);
+}
