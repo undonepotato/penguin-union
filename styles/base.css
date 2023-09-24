@@ -17,6 +17,7 @@ Z-indexes:
     --primary-color: #3699c4;
     --secondary-color: #f4d7dd;
     --accent-color: #08c49e;
+    --site-yellow: #f0eca6;
 }
 
 html {
@@ -91,7 +92,7 @@ button.top-nav:hover {
     margin: 0.2rem 0.5rem;
 }
 
-#profile-picture.top-nav {
+#profile-picture {
     position: absolute;
     right: 1rem;
     top: 0.5rem;
