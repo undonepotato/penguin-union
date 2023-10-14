@@ -1,6 +1,5 @@
-@layer base, fit-size;
+@layer fit-size;
 @import url("base.css") layer(base);
-@import url("fit-size.css") layer(fit-size);
 
 article {
     inline-size: 80%;

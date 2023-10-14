@@ -1,6 +1,6 @@
 /*
 
-Supplemental to fit-size.css and base.css, this handles
+Supplemental to base.css, this handles
 more complicated/conditional aspects of the CSS that fits
 the content and navigation to the screen.
 

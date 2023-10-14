@@ -1,7 +1,7 @@
 import requests
 
 URL = "https://discord.com/api/webhooks/1150476936167034910/YCqa5nvvcoZ8pTpozIcZESmJDR3V74zli49XNMhbvWxu0PCw8MNaD2tZb5DA5TAy6JYq"
-REQUEST_TIMEOUT = 30
+REQUEST_TIMEOUT = 30 # seconds
 
 def main():
     print("Manual Discord webhook")

@@ -1,6 +1,5 @@
-@layer base, fit-size;
+@layer base;
 @import url("base.css") layer(base);
-@import url("fit-size.css") layer(fit-size);
 
 main {
     display: flex;
