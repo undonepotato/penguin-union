@@ -6,12 +6,20 @@ REQUEST_TIMEOUT = 30 # seconds
 def main():
     print("Manual Discord webhook")
 
-    name = input('Name of this webhook. "Site Update" if empty. ')
+    name = input('Name of this webhook. "Site Update" if empty.\n')
 
     if name == "":
         name = "Site Update"
 
-    content = input("Content: ")
+    content = input("Content:\n")
+
+    send_common = input("Send the URL and a reminder to clear cache/history? Y/N\n")
+
+    if send_common in ("y", "yes"):
+        content += "\n\n[Site Link](https://undonepotato.github.io/penguin-union)"
+        content += "\nClear your cache or browser history if the changes don't show up after about 5 minutes."
+    else:
+        print("Was not attached\n")
 
     data = {
         "name": name,
@@ -26,7 +34,7 @@ def main():
 
     print(f'Name: "{name}"\nContent: "{content}".')
 
-    send_confirm = input("Send? Y/N ").lower()
+    send_confirm = input("Send? Y/N\n").lower()
 
     if send_confirm in ("y", "yes"):
         resp = requests.post(URL, data, timeout=REQUEST_TIMEOUT)
