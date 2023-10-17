@@ -23,6 +23,8 @@ Z-indexes:
         --secondary-color: #f4d7dd;
         --accent-color: #08c49e;
         --site-yellow: #f0eca6;
+        --site-red: #cc2936;
+        --site-purple: #DBBBF5;
 
         font-size: 18px;
         font-family: "Inter", Arial, Helvetica, sans-serif;
@@ -42,6 +44,7 @@ Z-indexes:
         margin-block-start: 4rem;
         margin-block-end: 1rem;
         min-block-size: calc(100vh - 11rem);
+
     }
 
     a {
@@ -50,11 +53,15 @@ Z-indexes:
     }
 
     footer {
+        display: block;
         font-size: 16px;
         border-block-start: 2px solid var(--text-color);
-        min-inline-size: 100%;
+        inset-inline-start: 0;
+        inset-block-end: 0;
+        inline-size: 100%;
         margin: 0;
         padding: 0;
+        background-color: var(--background-color);
     }
 
     a:hover {
@@ -75,10 +82,15 @@ Z-indexes:
         -webkit-text-fill-color: transparent;
     }
 
+    h1.top-nav {
+        margin-inline-start: 1rem;
+    }
+
     nav.top-nav {
         user-select: none;
         position: fixed;
         inset-block-start: 0;
+        inset-inline-start: 0;
         inline-size: 100%;
         background-color: var(--background-color);
         display: block;
@@ -99,7 +111,8 @@ Z-indexes:
         border: none;
         background-color: inherit;
         padding: 0.5rem;
-        margin: 0.1rem; 
+        margin: 0.1rem;
+        font-size: 24px;
     }
 
     a.top-nav:hover{
@@ -200,11 +213,11 @@ Z-indexes:
         z-index: 3;
         background-color: rgba(0, 0, 0, 0.4);
 
-        animation: 0.3s fadeIn;
+        animation: 0.3s shadowFadeIn;
     }
 
     #darken-not-sidebar.activated.closing {
-        animation: 0.3s fadeOut;
+        animation: 0.3s shadowFadeOut;
     }
 
     #darken-not-sidebar:not(.activated) {
@@ -217,6 +230,24 @@ Z-indexes:
 
     @keyframes fadeIn {
         from {
+            opacity: 0%;
+        }
+        to {
+            opacity: 100%;
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opactiy: 100%;
+        }
+        to {
+            opactiy: 0%;
+        }
+    }
+
+    @keyframes shadowFadeIn {
+        from {
             background-color: rgba(0, 0, 0, 0);
         }
 
@@ -225,7 +256,7 @@ Z-indexes:
         }
     }
 
-    @keyframes fadeOut {
+    @keyframes shadowFadeOut {
         from {
             background-color: rgba(0, 0, 0, 0.4);
         }
