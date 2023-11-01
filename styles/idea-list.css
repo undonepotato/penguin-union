@@ -2,47 +2,47 @@
 @import url("base.css") layer(base);
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 div.idea-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
 }
 
 a.idea-list-item {
-    text-decoration: none;
-    text-align: center;
-    font-weight: 500;
-    text-align: center;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 500;
+  text-align: center;
 
-    border-radius: 20px;
-    background-color: var(--primary-color);
-    padding: 3rem;
-    min-block-size: 3rem;
-    margin: 1rem;
-    vertical-align: top;
+  border-radius: 20px;
+  background-color: var(--primary-color);
+  padding: 3rem;
+  min-block-size: 3rem;
+  margin: 1rem;
+  vertical-align: top;
 
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex: 1 5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex: 1 5rem;
 }
 
 a.idea-list-item:hover {
-    color: var(--background-color);
+  color: var(--background-color);
 }
 
 a.idea-list-item.completed {
-    text-decoration: line-through;
-    background-color: var(--accent-color);
+  text-decoration: line-through;
+  background-color: var(--accent-color);
 }
 
 a.idea-list-item.in-progress {
-    background-color: var(--site-yellow);   
+  background-color: var(--site-yellow);
 }
 
 a.idea-list-item.canceled {
-    background-color: var(--secondary-color);
+  background-color: var(--secondary-color);
 }

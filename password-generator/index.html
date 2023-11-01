@@ -1,48 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, inital-scale=1">
-        <meta name="author" content="undonepotato">
-        <meta name="description" content="A simple password generator with multiple parameters.">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../styles/password-generator.css">
-        <script defer src="../scripts/password-generator.js"></script>
-    </head>
-    <body>
-        <h1>Password Generator</h1>
-        <p>
-            <i>Generate unrememberable passwords.</i>
-        </p>
-        <div>
-            <input type="text" id="password" name="password"/>
-        </div>
-        <div id="button-div">
-            <button id="copy-password">Copy</button>
-            <button id="regenerate">Re-Generate</button>
-        </div>
-        <div>
-            <label for="toggle-uppercase">A-Z</label>
-            <input type="checkbox" id="toggle-uppercase" checked />
-            <label for="toggle-lowercase">a-z</label>
-            <input type="checkbox" id="toggle-lowercase" checked />
-            <label for="toggle-numbers">0-9</label>
-            <input type="checkbox" id="toggle-numbers" checked />
-            <label for="toggle-special">!@#$%^&*</label>
-            <input type="checkbox" id="toggle-special" checked />
-        </div>
-        <div>
-            <label for="avoid-ambiguous">Avoid ambiguous characters</label>
-            <input type="checkbox" id="toggle-ambiguous" checked />
-        </div>
-        <div>
-            <label for="password-length" id="password-length-label">Password Length</label>
-            <input type="range" id="password-length" min="3" max="50" value="18">
-        </div>
-        <footer>
-            <a href="../index.html">Go back</a>
-        </footer>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, inital-scale=1" />
+    <meta name="author" content="undonepotato" />
+    <meta
+      name="description"
+      content="A simple password generator with multiple parameters."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/password-generator.css" />
+    <script defer src="../scripts/password-generator.js"></script>
+  </head>
+  <body>
+    <h1>Password Generator</h1>
+    <p>
+      <i>Generate unrememberable passwords.</i>
+    </p>
+    <div>
+      <input type="text" id="password" name="password" />
+    </div>
+    <div id="button-div">
+      <button id="copy-password">Copy</button>
+      <button id="regenerate">Re-Generate</button>
+    </div>
+    <div>
+      <label for="toggle-uppercase">A-Z</label>
+      <input type="checkbox" id="toggle-uppercase" checked />
+      <label for="toggle-lowercase">a-z</label>
+      <input type="checkbox" id="toggle-lowercase" checked />
+      <label for="toggle-numbers">0-9</label>
+      <input type="checkbox" id="toggle-numbers" checked />
+      <label for="toggle-special">!@#$%^&*</label>
+      <input type="checkbox" id="toggle-special" checked />
+    </div>
+    <div>
+      <label for="avoid-ambiguous">Avoid ambiguous characters</label>
+      <input type="checkbox" id="toggle-ambiguous" checked />
+    </div>
+    <div>
+      <label for="password-length" id="password-length-label"
+        >Password Length</label
+      >
+      <input type="range" id="password-length" min="3" max="50" value="18" />
+    </div>
+    <footer>
+      <a href="../index.html">Go back</a>
+    </footer>
+  </body>
 </html>

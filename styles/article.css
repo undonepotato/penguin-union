@@ -2,36 +2,36 @@
 @import url("base.css") layer(base);
 
 article {
-    inline-size: 80%;
-    margin-left: auto;
-    margin-right: auto;
+  inline-size: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 img.article-image {
-    inline-size: 100%;
-    border-radius: 10px;
-    border: 4px solid #f4d7dd;
+  inline-size: 100%;
+  border-radius: 10px;
+  border: 4px solid #f4d7dd;
 }
 
 @media (min-width: 85rem) {
-    aside {
-        position: absolute;
-        top: 50rem;
-        margin: 2rem;
-        inline-size: 10rem;
-        z-index: 1;
-        border: 2px solid var(--accent-color);
-        border-radius: 40px;
-        padding: 10px;
-    }
-    article {
-        inline-size: 50rem;
-    }
-    img.article-image {
-        inline-size: 50rem;
-    }
+  aside {
+    position: absolute;
+    top: 50rem;
+    margin: 2rem;
+    inline-size: 10rem;
+    z-index: 1;
+    border: 2px solid var(--accent-color);
+    border-radius: 40px;
+    padding: 10px;
+  }
+  article {
+    inline-size: 50rem;
+  }
+  img.article-image {
+    inline-size: 50rem;
+  }
 }
 
 #article-title {
-    text-align: center;
+  text-align: center;
 }

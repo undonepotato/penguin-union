@@ -3,109 +3,101 @@
 
 /* Google Material Symbols; the expand icon on the links */
 .material-symbols-outlined {
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
 }
 
 :root {
-    background-color: var(--background-color);
-    background:
-        linear-gradient(
-        rgba(0, 0, 0, 0.3), 
-        rgba(0, 0, 0, 0.3)
-        ),
+  background-color: var(--background-color);
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url("../images/penguins-1024.jpg");
-    background-blend-mode: darken;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-blend-mode: darken;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* At 800px, replace image with one that's slightly smaller and shows a penguin instead 
 of just ice at lower screen sizes */
 
 @media (max-width: 800px) {
-    :root {
-        background:
-        linear-gradient(
-        rgba(0, 0, 0, 0.3), 
-        rgba(0, 0, 0, 0.3)
-        ),
-        url("../images/penguins-cropped.jpg");
-        background-blend-mode: darken;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+  :root {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url("../images/penguins-cropped.jpg");
+    background-blend-mode: darken;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 
 #landing-card {
-    display: flex;
-    flex-flow: row wrap;
-    color: var(--background-color);
+  display: flex;
+  flex-flow: row wrap;
+  color: var(--background-color);
 }
 
 #main-actions {
-    font-size: 24px;
-    text-align: center;
-    flex-basis: 22rem;
-    flex-grow: 1;
-    padding: 1rem;
+  font-size: 24px;
+  text-align: center;
+  flex-basis: 22rem;
+  flex-grow: 1;
+  padding: 1rem;
 }
 
 #suggested-actions {
-    text-align: center;
-    list-style-type: none;
+  text-align: center;
+  list-style-type: none;
 }
 
 #manifesto {
-    padding-block-end: 2rem;
-    border-block-end: 5px solid var(--secondary-color);
+  padding-block-end: 2rem;
+  border-block-end: 5px solid var(--secondary-color);
 }
 
 .main-heading {
-    font-size: 2rem;
-    font-family: "Poppins", "Inter", Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+  font-family: "Poppins", "Inter", Arial, Helvetica, sans-serif;
 }
 
 .suggested-action {
-    margin: 1rem;
+  margin: 1rem;
 }
 
 .suggested-action a {
-    all: unset;
-    cursor: pointer;
-    display: inline-block;
+  all: unset;
+  cursor: pointer;
+  display: inline-block;
 }
 
 .suggested-action a:hover {
-    text-decoration: underline var(--secondary-color);
+  text-decoration: underline var(--secondary-color);
 }
 
 .soft-red {
-    color: var(--site-red);
+  color: var(--site-red);
 }
 
 .soft-purple {
-    color: var(--site-purple);
+  color: var(--site-purple);
 }
 
 #landing-card {
-    display: flex;
-    flex-flow: row wrap;
-    color: var(--background-color);
+  display: flex;
+  flex-flow: row wrap;
+  color: var(--background-color);
 }
 
 #intro {
-    font-family: "Poppins", "Inter", Arial, Helvetica, sans-serif;
+  font-family: "Poppins", "Inter", Arial, Helvetica, sans-serif;
 
-    margin: 1rem;
-    border: 5px solid var(--secondary-color);
-    border-radius: 40px;
-    font-size: 4rem;
-    padding: 1rem;
-    text-align: left;
-    flex-basis: 25rem;
-    flex-grow: 1;
+  margin: 1rem;
+  border: 5px solid var(--secondary-color);
+  border-radius: 40px;
+  font-size: 4rem;
+  padding: 1rem;
+  text-align: left;
+  flex-basis: 25rem;
+  flex-grow: 1;
 }
