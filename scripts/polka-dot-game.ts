@@ -1,7 +1,9 @@
 // Still an inconsistent, barely object-oriented mess, but it still works.
 
-const canvas = document.querySelector(".mainGameCanvas");
-const highScoreLabel = document.querySelector("#highScoreLabel");
+const canvas = document.querySelector(".mainGameCanvas") as HTMLCanvasElement;
+const highScoreLabel = document.querySelector(
+  "#highScoreLabel",
+) as HTMLLabelElement;
 
 // TODO LIST:
 // Feature request point
@@ -12,10 +14,10 @@ const width = (canvas.width =
 const height = (canvas.height =
   window.innerHeight - Math.floor(window.innerHeight / 10));
 
-const ctx = canvas.getContext("2d");
+const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 
 let possibleColors = ["#bebeef", "#8c8cd9", "#50509f"]; // Possible colors for obstacle Circles.
-let drawnCircles = []; // A constanly-updating list of obstacle Circles that should be drawn.
+let drawnCircles: Circle[] = []; // A constanly-updating list of obstacle Circles that should be drawn.
 
 let textColor = "#313144";
 let textEffectColor = "#e7e788";
@@ -30,10 +32,10 @@ let obstacleGeneration = 8; // Higher numbers are less frequent.
 let obstacleGenerationUpdated = false;
 let alive = false; // Player is alive. False by default, so you have to click to start.
 
-let curX; // Cursor X pos, relative to the canvas (used for tracking and drawing of player circle)
-let curY; // Cursor Y pos, relative to the canvas
+let curX: number; // Cursor X pos, relative to the canvas (used for tracking and drawing of player circle)
+let curY: number; // Cursor Y pos, relative to the canvas
 
-let requestID;
+let requestID: number;
 
 ctx.fillStyle = textColor;
 ctx.font = textFont;
@@ -60,8 +62,8 @@ if (retrievedHighScore) {
   }
 }
 
-highScore = Number(retrievedHighScore);
-highAscensions = Number(retrievedHighAscensions);
+let highScore = Number(retrievedHighScore);
+let highAscensions = Number(retrievedHighAscensions);
 
 function draw() {
   if (alive) {
@@ -78,8 +80,8 @@ function draw() {
       // Basically that means it'll start on the top or bottom.
 
       if (xCircle) {
-        var newCircleX = rand(0, width);
-        var newCircleY = [-50, height + 50][rand(0, 1)];
+        var newCircleX: number = rand(0, width);
+        var newCircleY: number = [-50, height + 50][rand(0, 1)];
 
         var newCircleXVelocity = rand(-1, 1);
         if (newCircleY === -50) {
@@ -88,8 +90,8 @@ function draw() {
           var newCircleYVelocity = rand(-1, -4);
         }
       } else {
-        var newCircleY = rand(0, height);
-        var newCircleX = [-50, width + 50][rand(0, 1)];
+        var newCircleY: number = rand(0, height);
+        var newCircleX: number = [-50, width + 50][rand(0, 1)];
 
         var newCircleYVelocity = rand(-1, 1);
         if (newCircleX === -50) {
@@ -209,15 +211,22 @@ function draw() {
 }
 
 class Circle {
-  x;
-  y;
-  color;
-  radius;
-  xVelocity;
-  yVelocity;
-  queuedForRemoval;
+  x: number;
+  y: number;
+  color: string;
+  radius: number;
+  xVelocity: number;
+  yVelocity: number;
+  queuedForRemoval: boolean;
 
-  constructor(x, y, color, radius, xVelocity, yVelocity) {
+  constructor(
+    x: number,
+    y: number,
+    color: string,
+    radius: number,
+    xVelocity: number,
+    yVelocity: number,
+  ) {
     this.x = x;
     this.y = y;
     this.color = color;
@@ -228,24 +237,24 @@ class Circle {
   }
 }
 
-function drawBackground() {
+function drawBackground(): void {
   ctx.fillStyle = "#e6e6fa";
   ctx.fillRect(0, 0, width, height);
 }
 
-function degToRad(deg) {
+function degToRad(deg: number): number {
   return (deg * Math.PI) / 100;
 }
 
-function rand(min, max) {
+function rand(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function weightedRandom(min, max) {
+function weightedRandom(min: number, max: number): number {
   return Math.round(max / (Math.random() * max + min));
 }
 
-function die() {
+function die(): void {
   alive = false;
 
   // Draw player circle
@@ -277,8 +286,8 @@ function die() {
       highScoreLabel.textContent = `High Score: ${playerScore}`;
     }
 
-    localStorage.setItem("highScore", playerScore);
-    localStorage.setItem("highAscensions", playerAscensions);
+    localStorage.setItem("highScore", playerScore.toString());
+    localStorage.setItem("highAscensions", playerAscensions.toString());
 
     drawLastMessage(true);
     return;
@@ -286,7 +295,7 @@ function die() {
   drawLastMessage(false);
 }
 
-function drawLastMessage(isNewHighScore) {
+function drawLastMessage(isNewHighScore: boolean): void {
   // Draw score at top-left
   ctx.fillStyle = textColor;
   ctx.font = textFont;
@@ -304,7 +313,7 @@ function drawLastMessage(isNewHighScore) {
     ctx.fillText("A" + playerAscensions, 0, height - 10);
   }
 
-  displayedText = isNewHighScore ? "New High Score!" : "Game Over!";
+  let displayedText = isNewHighScore ? "New High Score!" : "Game Over!";
 
   ctx.fillStyle = textColor;
   ctx.font = textFont;
@@ -319,7 +328,7 @@ function drawLastMessage(isNewHighScore) {
   );
 }
 
-function restart() {
+function restart(): void {
   // Can also be used as first start
   drawBackground();
   if (alive) {
