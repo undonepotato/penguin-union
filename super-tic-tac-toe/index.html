@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>TITLE</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, inital-scale=1" />
+    <meta name="author" content="Hayden Kwon" />
+    <meta name="description" content="description" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter"
+      rel="stylesheet"
+    />
+    <link href="../styles/base.css" rel="stylesheet" />
+    <script defer src="../scripts/fit-size.js"></script>
+  </head>
+  <body>
+    <nav class="side-nav narrow">
+      <button class="side-nav narrow" id="side-nav-back">✖</button>
+      <h1 class="side-nav narrow">Penguin Union</h1>
+
+      <a class="side-nav narrow" href="../index.html">Home</a>
+      <a class="side-nav narrow" href="../our-team/index.html">Our team</a>
+      <a class="side-nav narrow" href="../idea-list/index.html">Projects</a>
+      <a class="side-nav narrow" href="../contact/index.html">Contact</a>
+    </nav>
+    <div class="side-nav darken narrow" id="darken-not-sidebar">
+      <!-- Just for darkening content if sidebar is triggered on narrow screens -->
+    </div>
+    <nav class="top-nav">
+      <header>
+        <h1 class="top-nav">Penguin Union</h1>
+
+        <a class="top-nav wide" href="../index.html">Home</a>
+        <a class="top-nav wide" href="../our-team/index.html">Our team</a>
+        <a class="top-nav wide" href="../idea-list/index.html">Projects</a>
+        <a class="top-nav wide" href="../contact/index.html">Contact</a>
+        <img
+          src="../images/penguin-pfp.png"
+          alt="A confident penguin profile picture"
+          class="top-nav wide"
+          id="profile-picture"
+        />
+
+        <button class="top-nav narrow" id="hamburger-menu">☰</button>
+      </header>
+    </nav>
+
+    <main>
+      <canvas id="gameCanvas">
+        Your browser doesn't support the HTML Canvas.
+      </canvas>
+    </main>
+    <footer>
+      <p>This site's not real, but I had fun making it.</p>
+      <p>
+        ©2023 Hayden Kwon. All rights reserved.
+        <i>(Don't know why you'd want to use it, though.)</i>
+      </p>
+    </footer>
+  </body>
+</html>

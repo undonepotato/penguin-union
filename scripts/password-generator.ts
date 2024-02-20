@@ -1,34 +1,34 @@
 const passwordField = document.querySelector("#password") as HTMLInputElement;
 
 const passwordCopyButton = document.querySelector(
-  "#copy-password",
+    "#copy-password",
 ) as HTMLButtonElement;
 const regenerateButton = document.querySelector(
-  "#regenerate",
+    "#regenerate",
 ) as HTMLButtonElement;
 
 const toggleUppercase = document.querySelector(
-  "#toggle-uppercase",
+    "#toggle-uppercase",
 ) as HTMLInputElement;
 const toggleLowercase = document.querySelector(
-  "#toggle-lowercase",
+    "#toggle-lowercase",
 ) as HTMLInputElement;
 const toggleNumbers = document.querySelector(
-  "#toggle-numbers",
+    "#toggle-numbers",
 ) as HTMLInputElement;
 const toggleSpecial = document.querySelector(
-  "#toggle-special",
+    "#toggle-special",
 ) as HTMLInputElement;
 const toggleAmbiguous = document.querySelector(
-  "#toggle-ambiguous",
+    "#toggle-ambiguous",
 ) as HTMLInputElement;
 
 const passwordLengthSelection = document.querySelector(
-  "#password-length",
+    "#password-length",
 ) as HTMLInputElement;
 
 const passwordLengthLabel = document.querySelector(
-  "#password-length-label",
+    "#password-length-label",
 ) as HTMLLabelElement;
 
 const uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -45,17 +45,17 @@ passwordLengthLabel.textContent = `Password Length (${passwordLengthSelection.va
 
 // Update password length variable and regenerate upon input
 passwordLengthSelection.addEventListener("input", () => {
-  passwordLength = Number(passwordLengthSelection.value);
-  passwordLengthLabel.textContent = `Password Length (${passwordLengthSelection.value})`;
-  updatePasswordField();
+    passwordLength = Number(passwordLengthSelection.value);
+    passwordLengthLabel.textContent = `Password Length (${passwordLengthSelection.value})`;
+    updatePasswordField();
 });
 
 passwordCopyButton.addEventListener("click", () => {
-  navigator.clipboard.writeText(passwordField.value);
-  passwordCopyButton.textContent = "Copied!";
-  setTimeout(() => {
-    passwordCopyButton.textContent = "Copy";
-  }, 1000);
+    navigator.clipboard.writeText(passwordField.value);
+    passwordCopyButton.textContent = "Copied!";
+    setTimeout(() => {
+        passwordCopyButton.textContent = "Copy";
+    }, 1000);
 });
 regenerateButton.addEventListener("click", updatePasswordField);
 
@@ -68,112 +68,114 @@ toggleAmbiguous.addEventListener("input", updatePasswordField);
 updatePasswordField(); // Generate password on first load
 
 function updatePasswordField(): void {
-  passwordField.value = getPassword(
-    toggleUppercase.checked,
-    toggleLowercase.checked,
-    toggleNumbers.checked,
-    toggleSpecial.checked,
-    toggleAmbiguous.checked,
-    passwordLength,
-  );
+    passwordField.value = getPassword(
+        toggleUppercase.checked,
+        toggleLowercase.checked,
+        toggleNumbers.checked,
+        toggleSpecial.checked,
+        toggleAmbiguous.checked,
+        passwordLength,
+    );
 }
 
 function getAllowedCharacters(
-  upper: boolean,
-  lower: boolean,
-  numbers: boolean,
-  special: boolean,
-  avoidAmbiguous: boolean,
-  minLength: number,
+    upper: boolean,
+    lower: boolean,
+    numbers: boolean,
+    special: boolean,
+    avoidAmbiguous: boolean,
+    minLength: number,
 ): string[] {
-  let allowedCharacters = "";
-  if (upper) {
-    if (avoidAmbiguous) {
-      allowedCharacters += uppercaseNoAmbiguity;
-    } else {
-      allowedCharacters += uppercaseLetters;
-    }
-  }
-
-  if (lower) {
-    if (avoidAmbiguous) {
-      allowedCharacters += lowercaseNoAmbiguity;
-    } else {
-      allowedCharacters += lowercaseLetters;
-    }
-  }
-
-  if (numbers) {
-    allowedCharacters += digits;
-  }
-  if (special) {
-    allowedCharacters += specialCharacters;
-  }
-
-  if (allowedCharacters == "") {
-    throw new Error("At least one character set must be enabled!");
-  }
-
-  if (allowedCharacters.length < minLength) {
-    let allowedCopyBuffer = allowedCharacters.split("");
-
-    for (
-      let i = allowedCharacters.length;
-      i < minLength;
-      i += allowedCharacters.length
-    ) {
-      allowedCopyBuffer = allowedCopyBuffer.concat(allowedCharacters.split(""));
+    let allowedCharacters = "";
+    if (upper) {
+        if (avoidAmbiguous) {
+            allowedCharacters += uppercaseNoAmbiguity;
+        } else {
+            allowedCharacters += uppercaseLetters;
+        }
     }
 
-    return allowedCopyBuffer;
-  }
+    if (lower) {
+        if (avoidAmbiguous) {
+            allowedCharacters += lowercaseNoAmbiguity;
+        } else {
+            allowedCharacters += lowercaseLetters;
+        }
+    }
 
-  return allowedCharacters.split("");
+    if (numbers) {
+        allowedCharacters += digits;
+    }
+    if (special) {
+        allowedCharacters += specialCharacters;
+    }
+
+    if (allowedCharacters == "") {
+        throw new Error("At least one character set must be enabled!");
+    }
+
+    if (allowedCharacters.length < minLength) {
+        let allowedCopyBuffer = allowedCharacters.split("");
+
+        for (
+            let i = allowedCharacters.length;
+            i < minLength;
+            i += allowedCharacters.length
+        ) {
+            allowedCopyBuffer = allowedCopyBuffer.concat(
+                allowedCharacters.split(""),
+            );
+        }
+
+        return allowedCopyBuffer;
+    }
+
+    return allowedCharacters.split("");
 }
 
 function getSecureNumbers(length: number) {
-  let secureValueBuffer = new Uint8Array(length);
-  crypto.getRandomValues(secureValueBuffer);
-  let secureNumberArray: number[] = [];
-  for (const i of secureValueBuffer) {
-    secureNumberArray.push(Number(i) % length);
-  }
+    let secureValueBuffer = new Uint8Array(length);
+    crypto.getRandomValues(secureValueBuffer);
+    let secureNumberArray: number[] = [];
+    for (const i of secureValueBuffer) {
+        secureNumberArray.push(Number(i) % length);
+    }
 
-  return secureNumberArray;
+    return secureNumberArray;
 }
 
 function generatePassword(
-  allowedChars: string,
-  secureNumbers: number[],
-  length: number,
+    allowedChars: string,
+    secureNumbers: number[],
+    length: number,
 ) {
-  let password = "";
-  for (let i of secureNumbers) {
-    password += allowedChars[i];
-  }
-  return password.slice(0, length);
+    let password = "";
+    for (let i of secureNumbers) {
+        password += allowedChars[i];
+    }
+    return password.slice(0, length);
 }
 
 function getPassword(
-  upper: boolean,
-  lower: boolean,
-  numbers: boolean,
-  special: boolean,
-  avoidAmbiguous: boolean,
-  length: number,
+    upper: boolean,
+    lower: boolean,
+    numbers: boolean,
+    special: boolean,
+    avoidAmbiguous: boolean,
+    length: number,
 ) {
-  try {
-    let allowedChars = getAllowedCharacters(
-      upper,
-      lower,
-      numbers,
-      special,
-      avoidAmbiguous,
-      length,
-    ).join("");
-    let secureNumbers = getSecureNumbers(allowedChars.length);
-    return generatePassword(allowedChars, secureNumbers, length);
-  } catch {
-    return "";
-  }
+    try {
+        let allowedChars = getAllowedCharacters(
+            upper,
+            lower,
+            numbers,
+            special,
+            avoidAmbiguous,
+            length,
+        ).join("");
+        let secureNumbers = getSecureNumbers(allowedChars.length);
+        return generatePassword(allowedChars, secureNumbers, length);
+    } catch {
+        return "";
+    }
 }
