@@ -1,0 +1,30 @@
+@layer base;
+@import url("base.css") layer(base);
+
+#game-container {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+#game-field-container {
+  text-align: left;
+  justify-items: start;
+  gap: 0;
+  display: grid;
+  grid-template: 5rem 5rem 5rem / 5rem 5rem 5rem;
+}
+
+.cell {
+  block-size: 5rem;
+  inline-size: 5rem;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 2px solid black;
+}
+
+.cell:hover {
+  cursor: pointer;
+}
